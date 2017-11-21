@@ -2,18 +2,15 @@ package main
 
 import (
 	"fmt"
-	"math/cmplx"
 	"math/rand"
 	"time"
+	"./gencmplx"
 )
 
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < 10; i++ {
-		c := complex(
-			float64(rand.Int63n(10000001)) / float64(10000000),
-			float64(rand.Int63n(10000001)) / float64(10000000))
-		fmt.Printf("%v (%v)\n", c, cmplx.Abs(c))
+	c := gencmplx.New(rand.NewSource(time.Now().UnixNano()), int64(10000))
+	for i := range c {
+		fmt.Printf("%v\t%v\n", real(i), imag(i))
 	}
 }
