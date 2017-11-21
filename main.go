@@ -6,7 +6,7 @@ import (
 	"math/rand"
 	"time"
 
-	"./gencmplx"
+	"github.com/kflange/sample-pi/gencmplx"
 )
 
 
